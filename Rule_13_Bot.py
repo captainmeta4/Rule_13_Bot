@@ -54,6 +54,10 @@ class Bot():
 
             #Divide the creation timestamp by 1000 because embed.ly adds 3 extra zeros for no reason
             content_creation = content_creation / 1000
+            
+            #sanity check for when embed.ly fucks up the timestamp - ignore the post
+            if content_creation < 0
+                continue
 
             #Get the reddit submission timestamp
             post_creation = submission.created_utc
