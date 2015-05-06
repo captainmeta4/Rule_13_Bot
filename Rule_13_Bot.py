@@ -101,8 +101,8 @@ class Bot():
                  "The following title would be acceptable:\n\n> ["+months[1]+" "+years[1]+"] "+submission.title+"\n\n"+
                  "Please refer to the [subreddit rules](/r/futurology/wiki/rules) for more information.\n\n---\n\n"+
                  "*I am a bot. Please [Message the Mods](https://www.reddit.com/message/compose?to=/r/{subreddit}"+
-                 "&subject=Question regarding the removal of this {kind} by /u/{author}"+
-                 "&message=I have a question regarding the removal of this [{kind}]({url}\):) if you feel this was in error.*")
+                 "&subject=Question regarding the removal of this submission by /u/"+submission.author.name+
+                 "&message=I have a question regarding the removal of this [submission]("+submission.url+"):) if you feel this was in error.*")
 
             submission.add_comment(msg).distinguish()
 
