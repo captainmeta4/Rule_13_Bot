@@ -65,27 +65,6 @@ class Bot():
             if age < 182:
                 continue
 
-            #Convert timestamp to date object
-            post_date = datetime.date.fromtimestamp(content_creation)
-
-            #Get possible month strings to look for in title
-            months=[]
-            months.append(post_date.strftime('%b')) #Month abbreviated name (Jan, Feb, Mar)
-            months.append(post_date.strftime('%B')) #Month full name (January, February, March)
-            months.append(post_date.strftime('%m')) #Month number (01, 02, 03)
-
-            #Get possible year strings to look for in title
-            years=[]
-            years.append(post_date.strftime('%y')) #2 digit year (98, 99, 00, 01)
-            years.append(post_date.strftime('%Y')) #4 digit year (1998, 1999, 2000, 2001)
-
-            #We're looking for "[month, year]" in the title, so generate a regex to find that
-            regex= "\[ ?("+months[0]+'|'+months[1]+'|'+months[2]+'),? ('+years[0]+'|'+years[1]+') ?\]'
-
-            #See if month/year tag is present in title
-            if re.search(regex, submission.title) != None:
-                continue
-
             #At this point we know the post breaks rule 13
             print("http://redd.it/"+submission.id+" - "+submission.title)
 
