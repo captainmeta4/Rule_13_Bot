@@ -56,7 +56,7 @@ class Bot():
             content_creation = content_creation / 1000
             
             #sanity check for when embed.ly fucks up the timestamp - ignore the post
-            if content_creation < 0
+            if content_creation < 0:
                 continue
 
             #Get the reddit submission timestamp
