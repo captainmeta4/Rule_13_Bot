@@ -22,7 +22,7 @@ class Bot():
 
     def process_submissions(self):
 
-        for submission in praw.helpers.submission_stream(r,"futurology",limit=100):
+        for submission in praw.helpers.submission_stream(r,"futurology",limit=100, verbosity=0):
 
             #Avoid duplicate work
             if submission.id in self.already_done:
