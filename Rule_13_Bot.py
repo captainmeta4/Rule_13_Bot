@@ -104,12 +104,10 @@ class Bot():
             
             link=requests.get('http://www.reddit.com/r/Futurology/submit',params=params).url
             
-            
-            
             #Leave a distinguished message
             msg=("Thanks for contributing. However, your submission has been automatically removed:\n\n"+
                  "> **Rule 13:** Content older than 6 months must have [month, year] in the title.\n\n"+
-                 "Please click here to resubmit with an acceptable title:\n\n>"+link+"\n\n"+
+                 "Please **first delete your submission** and then click here to resubmit with an acceptable title:\n\n>"+link+"\n\n"+
                  "Please refer to the [subreddit rules](/r/futurology/wiki/rules) for more information.\n\n---\n\n"+
                  "*I am a bot. Please [Message the Mods](https://www.reddit.com/message/compose?to=/r/"+submission.subreddit.display_name+
                  "&subject=Question regarding the removal of this submission by /u/"+submission.author.name+
