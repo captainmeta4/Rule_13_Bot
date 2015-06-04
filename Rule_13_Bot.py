@@ -100,7 +100,7 @@ class Bot():
             submission.remove()
 
             #Generate a URL that can be clicked to submit with proper title
-            params = {'url':submission.url, 'title': "["+months[1]+" "+years[1]+"] "+submission.title, 'resubmit'='True'}
+            params = {'url':submission.url, 'title': "["+months[1]+" "+years[1]+"] "+submission.title, 'resubmit'=True}
             
             link=requests.get('http://www.reddit.com/r/Futurology/submit',params=params).url
             
