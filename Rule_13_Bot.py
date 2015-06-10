@@ -39,7 +39,7 @@ class Bot():
             #ignore posts that have already been approved by another mod
             #Prevents repeat behavior on any false positive when heroku restarts bot once per day
             #Thanks to /u/coupdetaco for finding this behavior
-            if submisison.approved_by != None:
+            if submission.approved_by != None:
                 continue
 
             #Get the submission url
