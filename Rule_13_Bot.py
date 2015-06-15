@@ -45,21 +45,33 @@ class Bot():
             #Get the submission url
             url=submission.url
 
-            #Create params
-            params={'url':url,'key':key}
+            #Try getting timestamp directly. If that fails, hit embed.ly
+            try:
+                content = requests.get(url, headers=headers)
+                timestamp = time.strptime(content.headers['Last-Modified'], '%a, %d %b %Y %H:%M:%S %Z')
+                content_creation = int(time.mktime(timestamp))
+                print('timestamp extracted')
+            except:
 
-            #Hit the embed.ly API for data
-            data=requests.get('http://api.embed.ly/1/extract',params=params)
+                #Create params
+                params={'url':url,'key':embedly_key}
 
-            #Get timestamp
-            content_creation = data.json()['published']
+                #Hit the embed.ly API for data
+                data=requests.get('http://api.embed.ly/1/extract',params=params, headers=headers)
 
-            #Pass on content that does not have a timestamp
-            if content_creation == None:
-                continue
-
-            #Divide the creation timestamp by 1000 because embed.ly adds 3 extra zeros for no reason
-            content_creation = content_creation / 1000
+                #Get content timestamp
+                try:
+                    content_creation = data.json()['published']
+                    #Pass on content that does not have a timestamp
+                    if content_creation == None:
+                        print('error')
+                        continue
+                    #Divide the creation timestamp by 1000 because embed.ly adds 3 extra zeros for no reason
+                    content_creation = content_creation / 1000
+                    print('timestamp gotten via embed.ly')
+                except:
+                    print('error')
+                    continue
             
             #sanity check for when embed.ly fucks up the timestamp - ignore the post
             if content_creation < 0:
