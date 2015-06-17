@@ -14,7 +14,7 @@ username = "Rule_13_Bot"
 
 #Embed.ly stuff
 embedly_key= os.environ.get('key')
-headers={'user_agent'=user_agent}
+headers={'user_agent': user_agent}
 
 class Bot():
 
