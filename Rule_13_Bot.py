@@ -11,7 +11,7 @@ r=praw.Reddit(user_agent="/r/Futurology Rule 13 bot by /u/captainmeta4")
 username = "Rule_13_Bot"
 
 #Embed.ly stuff
-key= os.environ.get('key')
+embedly_key= os.environ.get('key')
 
 class Bot():
 
