@@ -6,12 +6,15 @@ from collections import deque
 import datetime
 import re
 
+user_agent="/r/Futurology Rule 13 bot by /u/captainmeta4"
+
 #Initialize reddit
-r=praw.Reddit(user_agent="/r/Futurology Rule 13 bot by /u/captainmeta4")
+r=praw.Reddit(user_agent=user_agent)
 username = "Rule_13_Bot"
 
 #Embed.ly stuff
 embedly_key= os.environ.get('key')
+headers={'user_agent'=user_agent}
 
 class Bot():
 
